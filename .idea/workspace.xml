@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="initiial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/affinityTrades.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/backend_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/funds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/profile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/wallets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/dashboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/funds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/profile_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/team.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/wallets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/wallets_sample.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/auth_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/service_account_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/accounts_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/AdminLTEFullLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/AdminLTELogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/aff_crop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/aff_logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/boxed-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/boxed-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/american-express.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/cirrus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/mastercard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/paypal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/paypal2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/visa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/default-150x150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user1-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user2-160x160.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user3-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user4-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user5-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user6-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user7-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user8-128x128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user_dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/clients_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/OrgChart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/funds/deposit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/funds/transfer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/profile/profile_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/profile/upload-documents.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/profile/verification.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/team/team.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/wallets/wallets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/api_helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/database_update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/org_chart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/token_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insertodb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/app.log.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/app.log.2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/app.log.3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sample_master.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2qpj3Z3x4E4G023CRdmZ0gJFtEA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/siddharthkarkhanis/Documents/vs_code_files/python/PYCharmProjects/affinityTrades/app/static/js",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static/js" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/routes/temp" />
+      <recent name="$PROJECT_DIR$/app/static/assets/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static" />
+      <recent name="$PROJECT_DIR$/app/routes" />
+      <recent name="$PROJECT_DIR$/app/templates/profile" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="affinityTrades" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="" />
+      <created>1735366211708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735366211708</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initiial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initiial commit" />
+  </component>
+</project>

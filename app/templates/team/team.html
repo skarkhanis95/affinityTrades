@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Dashboard{% endblock %}
+{% block notification_count %}1{% endblock %}
+{% block notification_count_total %}1{% endblock %}
+{% block notification_items %}{% endblock %}
+
+{% block header_profile_name %} {{ profile_data['info']['givenName'] }}  {{ profile_data['info']['familyName'] }}{% endblock %}
+{% block headerdropdown_profile_name %}{{ profile_data['email'] }}{% endblock %}
+{% block page_header %}My Team{% endblock %}
+{% block body %}
+<div id="tree"></div>
+<script>
+            //JavaScript
+
+        //name
+        OrgChart.templates.ana.field_0 =
+            `<text class="field_0" style="font-size: 22px;" fill="#ffffff" x="125" y="30" text-anchor="middle">{val}</text>`;
+
+        //accountNumber
+        OrgChart.templates.ana.field_1 =
+            `<text class="field_1" style="font-size: 16px;" fill="#ffffff" x="125" y="50" text-anchor="middle">#{val}</text>`;
+
+        //Balance Label
+        OrgChart.templates.ana.field_2 =
+            `<text class="field_3" style="font-size: 14px;" fill="#ffffff" x="55" y="70" text-anchor="middle">{val}</text>`;
+
+        //Balance
+        OrgChart.templates.ana.field_3 =
+            `<text class="field_2" style="font-size: 20px;" fill="#ffffff" x="55" y="90" text-anchor="middle">\${val}</text>`;
+
+        //Partnership Fee Label
+        OrgChart.templates.ana.field_4 =
+            `<text class="field_3" style="font-size: 14px;" fill="#ffffff" x="180" y="70" text-anchor="middle">{val}</text>`;
+        //Parnership Fee
+        OrgChart.templates.ana.field_5 =
+            `<text class="field_3" style="font-size: 20px;" fill="#ffffff" x="180" y="90" text-anchor="middle">\${val}</text>`;
+
+
+        const orgData = {{ org_data|tojson }};
+        console.log(orgData);
+        let options = getOptions();
+        let chart = new OrgChart(document.getElementById("tree"), {
+            enableSearch: false,
+            enableDragDrop: true,
+            mouseScrool: OrgChart.none,
+            editForm: {readOnly: true},
+            scaleInitial: options.scaleInitial,
+            tags: {
+                "assistant": {
+                    template: "ula"
+                }
+            },
+            nodeMenu: {
+                details: { text: "Details" }
+            },
+            nodeBinding: {
+                field_0: "name",
+                field_1: "account",
+                field_2: "balanceLabel",
+                field_3: "balance",
+                field_4: "partnershipLabel",
+                field_5: "partnershipFees"
+            }
+        });
+
+        chart.load(orgData);
+
+        function getOptions(){
+            const searchParams = new URLSearchParams(window.location.search);
+            let fit = searchParams.get('fit');
+            let scaleInitial = 1;
+            if (fit == 'yes'){
+                scaleInitial = OrgChart.match.boundary;
+            }
+            return {scaleInitial};
+        }
+        </script>
+{% endblock %}

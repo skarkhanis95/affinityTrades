@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Dashboard{% endblock %}
+{% block notification_count %}1{% endblock %}
+{% block notification_count_total %}1{% endblock %}
+{% block notification_items %}{% endblock %}
+{% block header_profile_name %} {{ profile_data['info']['givenName'] }}  {{ profile_data['info']['familyName'] }}{% endblock %}
+{% block headerdropdown_profile_name %}{{ profile_data['email'] }}{% endblock %}
+{% block page_header %}Dashboard{% endblock %}
+{% block body %}
+
+{% endblock %}
