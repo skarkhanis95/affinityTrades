@@ -5,6 +5,10 @@ import json
 from datetime import datetime
 import pandas as pd
 import config
+from app.services.service_account_manager import ServiceAccountManager
+
+
+sm = ServiceAccountManager()
 
 
 def get_child_accounts(myid):
@@ -107,7 +111,5 @@ def get_master_account(account_number):
     except Exception as e:
         print(f"Error in fetching paamm accounts from database server: {e}")
         return None
-
-
 
 

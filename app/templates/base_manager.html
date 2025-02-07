@@ -45,7 +45,6 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/adminlte.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/org.css') }}" />
 
     <!-- ENABLE THIS IN PYTHON ONCE READY<link rel="stylesheet" href="{{ url_for('static', filename='css/adminlte.css') }}" />-->
     <!--end::Required Plugin(AdminLTE)-->
@@ -103,6 +102,22 @@
 
 
     </style>
+    <style>
+
+
+#tree {
+    width: 100%;
+    height: 100%;
+}
+
+[data-n-id='1'] rect {
+    fill: #09c009;
+}
+
+.node.red rect {
+    fill: #750000;
+}
+        </style>
 
     <script type="text/javascript" src="{{ url_for('static', filename='js/OrgChart.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -300,7 +315,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/pamm-new/1/leaderboard" class="nav-link disabled">
+                    <a href="/pamm-new/1/leaderboard" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Leaderboard</p>
                     </a>
@@ -323,11 +338,24 @@
                   <p>My Team</p>
                 </a>
               </li>
-               <li class="nav-item">
-                <a href="/team/referral" class="nav-link {% if request.path == '/team/referral' %}active{% endif %}">
-                  <i class="nav-icon bi bi-people"></i>
-                  <p>Referrals</p>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-pencil-square"></i>
+                  <p>
+                    Administrator
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/manager/relationship" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Parent-Child Data</p>
+                    </a>
+                  </li>
+
+
+                </ul>
               </li>
 
 

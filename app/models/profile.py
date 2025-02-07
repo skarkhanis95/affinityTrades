@@ -23,6 +23,9 @@ class Profile:
                 first_name = profile_data["info"].get("givenName", "User")
                 last_name = profile_data["info"].get("familyName", "Unknown")
 
+                #Extract Email
+                email = profile_data.get("email", "UnknownEmail")
+
                 # Handle the photo attribute
                 initials = f"{first_name[:1].upper()}{last_name[:1].upper()}"
                 profile_data["initials"] = initials
@@ -41,6 +44,7 @@ class Profile:
                 #     image_base64 = base64.b64encode(photo_response.content).decode('utf-8')
                 #     profile_data["photo_url"] = f"data:image/png;base64,{image_base64}"
                 flask_session["profileInfo"] = profile_data
+                flask_session["user_email"] = email
                 return profile_data
             except requests.exceptions.RequestException as e:
                 print(f"Error fetching profile data: {e}")

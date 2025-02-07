@@ -4,106 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="initiial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/affinityTrades.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/backend_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/funds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/profile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/wallets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/dashboard.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/funds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/profile_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/team.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/wallets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/wallets_sample.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/auth_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/service_account_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/accounts_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/AdminLTEFullLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/AdminLTELogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/aff_crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/aff_logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/avatar5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/boxed-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/boxed-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/american-express.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/cirrus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/mastercard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/paypal2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/credit/visa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/default-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/photo4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/prod-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user1-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user2-160x160.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user3-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user4-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user5-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user6-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user7-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user8-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/assets/img/user_dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/clients_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/adminlte.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/OrgChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/adminlte.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/funds/deposit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/funds/transfer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/profile_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/upload-documents.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/verification.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/team/team.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/wallets/wallets.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/api_helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/database_update.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/middleware.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/org_chart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/token_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insertodb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app.log.1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app.log.2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app.log.3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample_master.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/app/automation/accounts_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/automation/pamm_partnership_calculations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/automation/partnership_to_csv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/pamm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/transactions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/proto_test/positions.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/proto_test/proto_decode test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/proto_test/proto_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/pamm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/transactions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/CountryCodes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/org.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/base_manager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/funds/withdrawal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/manager/relationship.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/pamm/accounts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/team/referral.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/transactions/transactions-history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/funds.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/funds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/org.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/wallets.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/wallets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/funds.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/funds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/team.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/team.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/adminlte.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/adminlte.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/funds/transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/funds/transfer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/team/team.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/team/team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/org_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/org_chart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,21 +80,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/siddharthkarkhanis/Documents/vs_code_files/python/PYCharmProjects/affinityTrades/app/static/js",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/siddharthkarkhanis/Documents/vs_code_files/python/PYCharmProjects/affinityTrades/app/templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates" />
+      <recent name="$PROJECT_DIR$/app/static" />
       <recent name="$PROJECT_DIR$/app/static/js" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/routes/temp" />
-      <recent name="$PROJECT_DIR$/app/static/assets/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/static" />
@@ -186,6 +135,14 @@
       <option name="presentableId" value="Default" />
       <updated>1735366211708</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1736357459469</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736357459469</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +158,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initiial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initiial commit" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

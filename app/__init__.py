@@ -27,13 +27,20 @@ def create_app():
     from .routes.wallets import wallets_bp
     from .routes.funds import funds_bp
     from .routes.team import team_bp
+    from .routes.pamm import pamm_bp
+    from .routes.register import register_bp
+    from .routes.manager import manager_bp
+    from .routes.transactions import transactions_bp
     app.register_blueprint(auth_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(profile_bp)
     app.register_blueprint(wallets_bp)
     app.register_blueprint(funds_bp)
     app.register_blueprint(team_bp)
-
+    app.register_blueprint(pamm_bp)
+    app.register_blueprint(register_bp)
+    app.register_blueprint(manager_bp)
+    app.register_blueprint(transactions_bp)
     # Default Routes
     @app.route('/')
     def home():

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+// Position data message
+message Position {
+  int32 position_id = 1;        // Position Id
+  int32 master_login = 2;       // Master Login
+  int32 master_position_id = 3; // Master Position Id
+  string symbol = 4;            // Symbol (e.g., XAUUSD)
+  string status = 5;            // Status (e.g., Buy or Sell)
+  double volume = 6;            // Volume
+  double open_price = 7;        // Open Price
+  double closed_price = 8;      // Closed Price
+  string duration = 9;          // Duration (e.g., 4h 7m)
+  double commission = 10;       // Commission
+  double swap = 11;             // Swap
+  double profit = 12;           // Profit
+}
+
+// Response containing multiple positions
+message PositionList {
+  repeated Position positions = 1;  // List of positions
+}

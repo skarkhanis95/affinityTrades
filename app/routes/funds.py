@@ -69,7 +69,7 @@ def submit_deposit():
     response = make_authenticated_request("POST", url=url, headers=headers, json=payload)
     if response.status_code != 201:
         return render_template('error.html', message="Failed to load profile data")
-    print(response.text)
+
     return redirect('/funds/deposit')
 
 
@@ -167,3 +167,201 @@ def confirm_transfer():
         return jsonify({"success": False, "message": f"Error: {str(e)}"})
 
 
+@funds_bp.route('/withdrawal')
+@token_required
+def withdrawal():
+    profile_data = Profile.fetch_profile_info()
+    if not profile_data:
+        return render_template('error.html', message="Failed to load profile data")
+
+
+    withdrawal_data = Funds.get_withdrawl_info()
+    if not withdrawal_data:
+        return render_template('error.html', message="Failed to load transfer data")
+
+    return render_template('funds/withdrawal.html', profile_data=profile_data,
+                           withdrawal_data=withdrawal_data)
+
+
+@funds_bp.route('/get-withdrawal-form', methods=["GET"])
+@token_required
+def get_withdrawal_form():
+    fromAccountId = int(request.args.get('fromAccountId'))
+    currency = int(request.args.get('currency'))
+    deviceTimezone = request.args.get('deviceTimezone')
+    paymentMethod = request.args.get('paymentMethod')
+
+    # Create the payload to send to the external API
+    payload = {
+        "accountId": fromAccountId,
+        "currencyCode": currency,
+        "deviceTimezone": deviceTimezone,
+        "locale": "en"
+    }
+
+    withdrawal_uri = f"{config.Config.API_BASE_URL}/withdrawal-methods/{paymentMethod}/form"
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    try:
+        response = make_authenticated_request("POST", url=withdrawal_uri, json=payload, headers=headers)
+        if response.status_code == 201:
+            data = response.json()
+            id = data.get("id")
+            if id:
+                return jsonify({"success": True, "id": id})
+            else:
+                print(response.status_code)
+                print(response.text)
+                print(response.content)
+                return jsonify({"success": False, "message": "Could Not Get Form ID from External API"})
+        else:
+            return jsonify({"success": False, "message": "Error with the external API"})
+
+    except requests.exceptions.RequestException as e:
+        return jsonify({"success": False, "message": f"Error: {str(e)}"})
+
+
+@funds_bp.route('/get-withdrawal-preview', methods=["GET"])
+@token_required
+def get_withdrawal_preview():
+    amount = request.args.get("amount")
+    fromAccountId = int(request.args.get('fromAccountId'))
+    currency = int(request.args.get('currency'))
+    paymentMethod = int(request.args.get('paymentMethod'))
+
+    # Create the payload to send to the external API
+    payload = {
+        "amount": amount,
+        "accountId": fromAccountId,
+        "currencyCode": currency,
+        "methodId": paymentMethod,
+    }
+
+    withdrawal_uri = f"{config.Config.API_BASE_URL}/withdrawals/preview"
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    try:
+        response = make_authenticated_request("POST", url=withdrawal_uri, json=payload, headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            rate = data.get("rate")
+            dataAmount = data.get("amount")
+            commission = data.get("commission")
+            sourceCurrencyAlphaCode = data.get("sourceCurrencyAlphaCode")
+            sourceCurrencyAmount = data.get("sourceCurrencyAmount")
+            destinationCurrencyAlphaCode = data.get("destinationCurrencyAlphaCode")
+            destinationCurrencyAmount = data.get("destinationCurrencyAmount")
+            if rate and dataAmount and commission and sourceCurrencyAlphaCode and sourceCurrencyAmount and destinationCurrencyAmount and destinationCurrencyAlphaCode:
+                return jsonify({
+                    "success": True,
+                    "rate": rate,
+                    "amount": dataAmount,
+                    "commission": commission,
+                    "sourceCurrencyAlphaCode": sourceCurrencyAlphaCode,
+                    "sourceCurrencyAmount": sourceCurrencyAmount,
+                    "destinationCurrencyAlphaCode": destinationCurrencyAlphaCode,
+                    "destinationCurrencyAmount": destinationCurrencyAmount
+                })
+            else:
+                print(response.status_code)
+                print(response.text)
+                print(response.content)
+                return jsonify({"success": False, "message": "Could Not Get Form ID from External API"})
+        else:
+            return jsonify({"success": False, "message": "Error with the external API"})
+
+    except requests.exceptions.RequestException as e:
+        return jsonify({"success": False, "message": f"Error: {str(e)}"})
+
+
+@funds_bp.route('/confirm-withdrawal', methods=["POST"])
+@token_required
+def confirm_withdrawal():
+    data = request.get_json()
+    id = str(data["id"])
+    methodId = int(data["methodId"])
+    accountId = int(data["accountId"])
+    currencyCode = int(data["currencyCode"])
+    amount = str(data["amount"])
+    additionalData = {
+        "9f34ddb9-421f-4ecb-8c56-77bfde1c1da5": data["accountHolderName"],
+        "af1f5a3e-c04d-44a8-96d6-103f4058d6be": data["bankName"],
+        "3c8929d1-7bb2-45a6-9f38-d349fb36f8d4": data["accountNumber"],
+        "db5eb57e-3010-43cd-a6d1-2f158b8c392c": data["bankIFSCCode"]
+    }
+
+    # Create the payload to send to the external API
+    payload = {
+        "id": id,
+        "methodId": methodId,
+        "accountId": accountId,
+        "currencyCode": currencyCode,
+        "amount": amount,
+        "data": additionalData
+
+    }
+
+    withdrawal_uri = f"{config.Config.API_BASE_URL}/withdrawals"
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    try:
+        response = make_authenticated_request("POST", url=withdrawal_uri, json=payload, headers=headers)
+        if response.status_code == 201:
+            data = response.json()
+            id = data.get("id")
+            confirmationChannel = data.get("confirmationChannel")
+            if id and confirmationChannel:
+                return jsonify({
+                    "success": True,
+                    "id": id,
+                    "confirmationChannel": confirmationChannel
+                })
+            else:
+                print(response.status_code)
+                print(response.text)
+                print(response.content)
+                return jsonify({"success": False, "message": "Could Not Get Verification Channel From External API"})
+        else:
+            return jsonify({"success": False, "message": "Error with the external API"})
+
+    except requests.exceptions.RequestException as e:
+        return jsonify({"success": False, "message": f"Error: {str(e)}"})
+
+
+@funds_bp.route('/validate-withdrawal', methods=["GET"])
+@token_required
+def validate_withdrawal():
+    id = request.args.get("formId")
+    code = request.args.get('code')
+
+
+
+    # Create the payload to send to the external API
+    payload = {
+        "id": id,
+        "code": code
+    }
+
+
+    withdrawal_uri = f"{config.Config.API_BASE_URL}/withdrawals/confirm"
+    headers = {
+        "accept-language": "",
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    }
+    try:
+        response = make_authenticated_request("POST", url=withdrawal_uri, json=payload, headers=headers)
+        if response.status_code == 204:
+            return jsonify({"success": True}), 204
+        else:
+            print(response.status_code)
+            print(response.text)
+            print(response.content)
+            return jsonify({"success": False, "message": f"Could Not Validate Your Request: {response.text}"})
+
+    except requests.exceptions.RequestException as e:
+        print("Inside Execption")
+        return jsonify({"success": False, "message": f"Error: {str(e)}"})

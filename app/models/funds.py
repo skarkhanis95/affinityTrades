@@ -140,6 +140,20 @@ class Funds:
             print(f"Error fetching wallets data: {e}")
             return None
 
+    @staticmethod
+    def get_withdrawal_currency_rate(numeric_code):
+        try:
+            url = f"https://api.affinitytrades.com/api/v1/rates/{config.Config.USD_CURRENCY_CODE}/{numeric_code}?spread=1"
+            response = make_authenticated_request("GET", url=url)
+            if response.status_code != 200:
+                return None
+            data = response.json()
+            rate = data.get("data", {}).get("rate", {}).get("value", 0)
+            return rate
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching wallets data: {e}")
+            return None
+
 
     @staticmethod
     def get_transfer_info():
@@ -164,3 +178,95 @@ class Funds:
             print(f"Error occured in getting Transfer Deails: {e}")
             return None
 
+
+
+    @staticmethod
+    def get_withdrawl_info():
+        try:
+            wallets_data = Wallets.fetch_wallets_info()
+
+            # Get Deposit Methods
+            url = config.Config.GET_WITHDRAWAL_METHODS_API
+            response = make_authenticated_request("GET", url)
+            if response.status_code != 200:
+                return None
+            withdrawal_methods = response.json()["data"]
+
+            # Prepare ALl the required data
+            withdrawal_data = {}
+            accounts = []
+
+            # Get eWallets
+            for wallet in wallets_data["data"]:
+
+                if wallet.get("platform", {}).get("id") == 1 \
+                        and wallet["platform"].get("caption") == "eWallet" \
+                        and wallet["platform"].get("isDemo") is False \
+                        and wallet.get("group", {}).get("name") == "Fiat":
+                    name = wallet.get("caption")
+                    number = wallet.get("accountNumber")
+                    accountId = wallet.get("accountId")
+                    balance = wallet.get("statement", {}).get("availableBalance", 0)
+                    acccount_obj = {
+                        "name": name,
+                        "number": number,
+                        "accountId": accountId,
+                        "availableBalance": float(round(balance, 2))
+                    }
+                    accounts.append(acccount_obj)
+
+            # get deposit methods
+            alphabetic_codes = [
+                currency["currency"]["alphabeticCode"]
+                for entry in withdrawal_methods
+                for currency in entry.get("paymentSystemCurrencies", [])
+            ]
+
+            # Get Currency Rates
+            currency_rates = {}
+            for entry in withdrawal_methods:
+                for currency in entry.get("paymentSystemCurrencies", []):
+                    alphabetic_code = currency["currency"]["alphabeticCode"]
+                    numeric_code = currency["currency"]["numericCode"]
+                    rate = Funds.get_withdrawal_currency_rate(numeric_code)
+                    currency_rates[alphabetic_code] = rate
+
+            # Add currencies to accounts
+            for account in accounts:
+                account["currencies"] = alphabetic_codes
+
+
+            consolidated_data = {}
+
+            for entry in withdrawal_methods:
+                parent_id = entry["id"]
+                parent_caption = entry["caption"]
+
+                for currency in entry.get("paymentSystemCurrencies", []):
+                    alphabetic_code = currency["currency"]["alphabeticCode"]
+                    currency_id = currency["currency"]["numericCode"]
+
+                    # Create or update the consolidated data structure
+                    if alphabetic_code not in consolidated_data:
+                        consolidated_data[alphabetic_code] = {
+                            "currency_id": currency_id,
+                            "payment_methods": []
+                        }
+
+                    consolidated_data[alphabetic_code]["payment_methods"].append({
+                        "id": parent_id,
+                        "caption": parent_caption
+                    })
+
+            # print(consolidated_data)
+
+            # Create Final Object
+            withdrawal_data = {
+                "accounts": accounts,
+                "rates": currency_rates,
+                "consolidated": consolidated_data
+            }
+            return withdrawal_data
+        except Exception as e:
+            print(f"Error occured in getting Withdrawl Deails: {e}")
+            return None

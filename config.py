@@ -1,6 +1,10 @@
 from datetime import timedelta
 
 class Config:
+
+    #Managers
+    MANAGERS = ["skarkhanis95@gmail.com", "manager2@example.com"]
+
     SECRET_KEY = 'whisky3105'
     API_BASE_URL = "https://api.affinitytrades.com/api/v2/my"
     API_SIGNIN_WIZARD = f"{API_BASE_URL}/signin/wizard"
@@ -37,10 +41,40 @@ class Config:
     INR_DEPOSIT_DATA_MOBILE_FIELD = "7c4a16e2-58e7-4107-9fc6-9b6988450a3c"
     CAN_TRANSFER_API = "https://api.affinitytrades.com/api/v1/investment/common/minimum_deposit/can_transfer"
     TRANSFER_API = "https://api.affinitytrades.com/api/v1/transfer"
+    GET_WITHDRAWAL_METHODS_API = f"{API_BASE_URL}/withdrawal-methods"
 
     #Database Details
     DB_HOST = "localhost"  # e.g., "localhost"
-    DB_USER = "affinity_db_user"  # e.g., "root"
-    DB_PASSWORD = "whisky3115" # e.g., "password"
-    DATABASE = "affinityTrades"  # e.g., "test_db"
+    DB_USER = "affinityTrades20"  # e.g., "root"
+    DB_PASSWORD = "Whisky@3115" # e.g., "password"
+    DATABASE = "affinitytrades20$affinityTrades"  # e.g., "test_db"
 
+
+    #PAMM CONFIG
+    INVESTMENT_ACCOUNTS_API = "https://api.affinitytrades.com/api/v1/investment/common/investment_accounts/list?types%5B0%5D=7&types%5B1%5D=6&investment_platform_id=1"
+
+    # REGISTER SETTINGS
+    CREATE_PAMM_ACCOUNT_URL = "https://api.affinitytrades.com/api/v1/investment/pamm/accounts/create?investment_platform_id=1&groupType=6"
+    MASTER_ACCOUNT_NUMBER = "10588"
+    INVESTMENT_PLATFORM_ID = 1
+    CAN_SUBSCRIBE_URL = "https://api.affinitytrades.com/api/v1/investment/common/minimum_deposit/can_subscribe"
+    SUBSCRIBE_URL = "https://api.affinitytrades.com/api/v1/investment/pamm/subscriptions/create"
+    ALLOCATION_METHOD = 4
+    RISK_RATIO = 1
+    SEARCH_ACCOUNT = "https://api.affinitytrades.com/api/v2/accounts"
+    SEARCH_CLIENT = "https://api.affinitytrades.com/api/v2/clients"
+
+
+    #Manager APIS
+    search_clients = "https://api.affinitytrades.com/api/v2/clients?filter%5Bemails%5D="
+
+
+    # PAMM LEVELS
+    LEVEL_0 = 5952.38
+    LEVEL_1 = 29761.90
+    LEVEL_2 = 59523.81
+    LEVEL_3 = 119047.62
+    LEVEL_0_NAME = "Star"
+    LEVEL_1_NAME = "Double Star"
+    LEVEL_2_NAME = "Level 2"
+    LEVEL_3_NAME = "Level 3"

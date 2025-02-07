@@ -74,8 +74,8 @@ class Wallets:
             transactions_data = transaction_response.json()
             try:
                 # Temporary create Database and store information here:
-                file_path = os.path.join(os.path.dirname(__file__), '../static/accounts_data.json')
-                file_path2 = os.path.join(os.path.dirname(__file__), '../static/clients_data.json')
+                file_path = os.path.join(os.path.dirname(__file__), '../daily_files/accounts_data.json')
+                file_path2 = os.path.join(os.path.dirname(__file__), '../daily_files/clients_data.json')
                 # Ensure the directory exists
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
@@ -140,16 +140,50 @@ class Wallets:
                         # Proceed with your logic for the transaction
                         transaction["type"] = "Partnership Fees"
 
+            # Calculate Total Deposits
+            total_deposits = 0
+            for transaction in transactions_data["data"]:
+                if transaction.get("type") == "deposit":
+                    amount = float(transaction.get("creditDetails", {}).get("amount", 0))
+                    total_deposits += amount
+
+            total_deposits_for_waa = []
+            for transaction in transactions_data["data"]:
+                if transaction.get("type") == "deposit":
+                    amount = float(transaction.get("creditDetails", {}).get("amount", 0))
+                    createTime = transaction.get("createTime")
+                    d = {
+                        "amount": amount, "createTime": createTime
+                    }
+                    total_deposits_for_waa.append(d)
+
 
             partnership_fees = Wallets.sum_partnership_fees(transactions_data["data"])
             performance_fees = Wallets.sum_performance_fees_on_first_of_month(transactions_data["data"])
             total_profit = round(performance_fees * 2, 2)
             individual_profit = round(performance_fees, 2)
+            total_returns_percentage = round((total_profit / total_deposits) * 100, 2) if total_deposits != 0 else 0
+            individual_returns_percentage = round((individual_profit / total_deposits) * 100, 2) if total_deposits !=0 else 0
+            annual_returns = round(Wallets.annualized_return(total_deposits, individual_profit, total_deposits_for_waa),2)
+            cagr = round(Wallets.calculate_cagr(total_deposits, individual_profit, total_deposits_for_waa),2)
 
             transactions_data["totalProfit"] = total_profit
             transactions_data["individualProfit"] = individual_profit
             transactions_data["partnershipFees"] = partnership_fees
-            print(json.dumps(transactions_data))
+
+            conversion_rate = config.Config.WITHDRAWL_INR_USD_RATE
+            # INR data
+            transactions_data["totalProfitINR"] = round(total_profit * conversion_rate)
+            transactions_data["individualProfitINR"] = round(individual_profit * conversion_rate)
+            transactions_data["partnershipFeesINR"] = round(partnership_fees * conversion_rate)
+            transactions_data["conversionRate"] = conversion_rate
+
+            #Add Returns
+            transactions_data["totalReturns"] = total_returns_percentage
+            transactions_data["individualReturns"] = individual_returns_percentage
+            transactions_data["annualReturns"] = annual_returns
+            transactions_data["cagr"] = cagr
+            #print(json.dumps(transactions_data))
 
             return transactions_data
         except requests.exceptions.RequestException as e:
@@ -169,7 +203,7 @@ class Wallets:
                 amount = float(transaction.get("creditDetails", {}).get("amount", 0))  # Ensure it's a float
                 total_fees += amount  # Add to the running total
 
-        return total_fees
+        return round(total_fees,2)
 
     @staticmethod
     def sum_performance_fees_on_first_of_month(transactions):
@@ -197,3 +231,30 @@ class Wallets:
 
         return total_fees
 
+
+    @staticmethod
+    def days_since(date_str):
+        deposit_date = datetime.fromisoformat(date_str[:-6])  # Remove timezone (+00:00)
+        today = datetime.utcnow()
+        return (today - deposit_date).days
+
+    @staticmethod
+    def weighted_average_age(deposits):
+        total_weighted_days = sum(d["amount"] * Wallets.days_since(d["createTime"]) for d in deposits)
+        total_deposit = sum(d["amount"] for d in deposits)
+        return total_weighted_days / total_deposit if total_deposit !=0 else 0
+
+    @staticmethod
+    def annualized_return(total_deposit, total_profit, deposits):
+        waa = Wallets.weighted_average_age(deposits)
+        return ((total_profit / total_deposit) * 100 * (365 / waa) ) if total_deposit !=0 else 0
+
+    @staticmethod
+    def calculate_cagr(total_deposit, total_profit, deposits):
+        final_value = total_deposit + total_profit
+        initial_value = total_deposit
+        waa_days = Wallets.weighted_average_age(deposits)
+        t_years = waa_days / 365  # Convert days to years
+
+        cagr = (final_value / initial_value) ** (1 / t_years) - 1
+        return cagr * 100 if total_deposit !=0 else 0  # Convert to percentage
