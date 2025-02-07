@@ -73,9 +73,11 @@ class Wallets:
                 return None
             transactions_data = transaction_response.json()
             try:
+                BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
                 # Temporary create Database and store information here:
-                file_path = os.path.join(os.path.dirname(__file__), '../daily_files/accounts_data.json')
-                file_path2 = os.path.join(os.path.dirname(__file__), '../daily_files/clients_data.json')
+                file_path = os.path.join(BASE_DIR, '../daily_files/accounts_data.json')
+                file_path2 = os.path.join(BASE_DIR, '../daily_files/clients_data.json')
                 # Ensure the directory exists
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
 

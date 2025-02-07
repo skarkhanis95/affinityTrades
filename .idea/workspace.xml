@@ -4,54 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/app/automation/accounts_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/automation/pamm_partnership_calculations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/automation/partnership_to_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/pamm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/transactions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/proto_test/positions.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/proto_test/proto_decode test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/proto_test/proto_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/pamm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/transactions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/CountryCodes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/org.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/base_manager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/funds/withdrawal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/manager/relationship.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/pamm/accounts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/team/referral.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/transactions/transactions-history.html" afterDir="false" />
+    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="initial go live">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/funds.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/funds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/org.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/wallets.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/wallets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/funds.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/funds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/team.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/team.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/adminlte.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/adminlte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/funds/transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/funds/transfer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/team/team.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/team/team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/org_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/org_chart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1736357459469</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial go live">
+      <created>1738935181128</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738935181128</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initiial commit" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="initial go live" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial go live" />
   </component>
 </project>
