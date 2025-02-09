@@ -95,7 +95,7 @@ function displayRefData(refData) {
     tableBody.innerHTML = ""; // Clear previous data
 
     refData.forEach(account => {
-        const referralUrl = account.refId ? `127.0.0.0:5000/register?${account.refId}` : null;
+        const referralUrl = account.refId ? `https://www.affinitymasters.com/register?refId=${account.refId}` : null;
 
         // If refId exists, show the link & share buttons; otherwise, show "Generate Ref ID" button
         let refIdCellContent = account.refId

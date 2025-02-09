@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="updated db2">
+    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="added logger and updated db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/org.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/wallets.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/wallets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/service_account_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/service_account_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/org_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/org_chart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/team/referral.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/team/referral.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1739096111310</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added logger and updated db">
+      <created>1739099755130</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739099755130</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +193,7 @@
     <MESSAGE value="added logger to Org model and updated db conns" />
     <MESSAGE value="updated db" />
     <MESSAGE value="updated db2" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated db2" />
+    <MESSAGE value="added logger and updated db" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logger and updated db" />
   </component>
 </project>
