@@ -30,9 +30,9 @@ def fetch_and_store_data(api_url, limit=100, offset=0, type=""):
             print(f"Failed to fetch data. Status code: {response.status_code}")
             break
     if type == "accounts":
-        filename = "../daily_files/accounts_data.json"
+        filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/accounts_data.json'
     elif type == "clients":
-        filename = "../daily_files/clients_data.json"
+        filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/clients_data.json'
     with open(filename, 'w') as json_file:
         # Write the clients data as a JSON array to the file
         json.dump(return_data, json_file, indent=4)
