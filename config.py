@@ -44,10 +44,11 @@ class Config:
     GET_WITHDRAWAL_METHODS_API = f"{API_BASE_URL}/withdrawal-methods"
 
     #Database Details
-    DB_HOST = "affinitytrades2024.mysql.pythonanywhere-services.com"  # e.g., "localhost"
-    DB_USER = "affinityTrades20"  # e.g., "root"
-    DB_PASSWORD = "Whisky@3115" # e.g., "password"
-    DATABASE = "affinitytrades20$affinityTrades"  # e.g., "test_db"
+    DB_HOST = "affintytrades-mysql-affinitytradessupport-605e.k.aivencloud.com"
+    DB_PORT = 14567
+    DB_USER = "avnadmin"  # e.g., "root"
+    DB_PASSWORD = "AVNS_wGnjM874MxNmp37dQkr" # e.g., "password"
+    DATABASE = "defaultdb"  # e.g., "test_db"
 
 
     #PAMM CONFIG

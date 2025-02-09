@@ -12,8 +12,12 @@ from datetime import datetime
 import pandas as pd
 from app.models.backend_service import Backend
 import mysql.connector
+from sshtunnel import SSHTunnelForwarder
+
+
 db_config = {
     "host": config.Config.DB_HOST,
+    "port": config.Config.DB_PORT,
     "user": config.Config.DB_USER,
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,

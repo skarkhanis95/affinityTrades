@@ -15,12 +15,16 @@ import mysql.connector
 
 manager_bp = Blueprint('manager', __name__, url_prefix='/manager')
 
+
+
 db_config = {
     "host": config.Config.DB_HOST,
+    "port": config.Config.DB_PORT,
     "user": config.Config.DB_USER,
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
+
 @manager_bp.route('/relationship')
 @token_required
 @manager_required

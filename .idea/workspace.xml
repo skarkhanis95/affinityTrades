@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="updated automation file paths">
-      <change afterPath="$PROJECT_DIR$/app/utils/logger.py" afterDir="false" />
+    <list default="true" id="b78f4983-1022-439b-9cec-eae16aa1e3c9" name="Changes" comment="added logger to Org model and updated db conns">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/automation/accounts_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/automation/accounts_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/automation/pamm_partnership_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/automation/pamm_partnership_calculations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/org.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/org.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/team.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/team.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1739082635991</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added logger to Org model and updated db conns">
+      <created>1739084615914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739084615914</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +159,7 @@
     <MESSAGE value="updated file paths" />
     <MESSAGE value="updated real file paths" />
     <MESSAGE value="updated automation file paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated automation file paths" />
+    <MESSAGE value="added logger to Org model and updated db conns" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logger to Org model and updated db conns" />
   </component>
 </project>

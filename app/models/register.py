@@ -12,12 +12,16 @@ from app.services.service_account_manager import ServiceAccountManager
 
 sm = ServiceAccountManager()
 
+
+
 db_config = {
     "host": config.Config.DB_HOST,
+    "port": config.Config.DB_PORT,
     "user": config.Config.DB_USER,
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
+
 class Register:
     @staticmethod
     def create_pamm_account(accessToken, refreshToken, refId=None):

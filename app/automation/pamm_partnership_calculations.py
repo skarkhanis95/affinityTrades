@@ -3,12 +3,16 @@ import json
 import config
 
 # Database Configuration
+
+
 db_config = {
     "host": config.Config.DB_HOST,
+    "port": config.Config.DB_PORT,
     "user": config.Config.DB_USER,
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
+
 
 # Constants for Fee Calculation
 PARTNERSHIP_FEE_CONDITIONS = [

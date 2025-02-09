@@ -8,12 +8,16 @@ import config
 import mysql.connector
 
 team_bp = Blueprint('team', __name__, url_prefix='/team')
+
+
 db_config = {
     "host": config.Config.DB_HOST,
+    "port": config.Config.DB_PORT,
     "user": config.Config.DB_USER,
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
+
 
 
 @team_bp.route('/')

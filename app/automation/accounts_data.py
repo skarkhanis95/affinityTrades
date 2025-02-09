@@ -36,8 +36,8 @@ def fetch_and_store_data(api_url, limit=100, offset=0, type=""):
     with open(filename, 'w') as json_file:
         # Write the clients data as a JSON array to the file
         json.dump(return_data, json_file, indent=4)
-    print(json.dumps(return_data))
-    print("file created")
+    #print(json.dumps(return_data))
+    #print("file created")
 
 
 
