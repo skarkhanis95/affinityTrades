@@ -13,6 +13,8 @@ import pandas as pd
 from app.models.backend_service import Backend
 import mysql.connector
 from sshtunnel import SSHTunnelForwarder
+import logging
+from logging.handlers import RotatingFileHandler
 
 
 db_config = {
@@ -22,11 +24,11 @@ db_config = {
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
-print("")
 
 class Organization:
     @staticmethod
     def get_org_tree_info(master_account_number,master_account_id):
+        logger.info("Trying to connecting to DB")
         try:
             pamm_master_data = get_child_accounts(master_account_id)
             if pamm_master_data is None:
@@ -41,7 +43,6 @@ class Organization:
                 # Return No Child Accounts logic to display single node chart attribute
                 # implement seprate function to return just the logged in Account and show that in chart
                 return {}
-
             for pamm_account in pamm_master_data:
                 account_number = pamm_account['accountNumber']  # Current account number from pamm_master
 
@@ -60,6 +61,7 @@ class Organization:
                 account_id = pamm_account["accountId"]
                 pamm_account["balance"] = Organization.get_available_balance_from_account(account_id)
 
+            print("Receveied balances from BAckend at Line 67")
             total_partnership_fee_recevied = 0
             for pamm_account in pamm_master_data:
                 partner_fee = pamm_account.get("partnershipFees")
@@ -152,6 +154,7 @@ class Organization:
             return []
 
         conn = mysql.connector.connect(**db_config)
+        logger.info("TESTING LOGGINS")
         try:
             with conn.cursor(dictionary=True) as cursor:
                 # ✅ Fix: Use parameterized query safely
@@ -193,8 +196,9 @@ class Organization:
         Returns only the accounts that exist in the database.
         """
 
-
+        logger.info("TESTING LOGGINS")
         conn = mysql.connector.connect(**db_config)
+        logger.info("TESTING LOGGINS")
         try:
             with conn.cursor(dictionary=True) as cursor:
                 # ✅ Fix: Use parameterized query safely

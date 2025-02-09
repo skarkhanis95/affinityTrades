@@ -3,6 +3,7 @@ from app.services.auth_service import AuthService
 from app.utils.api_helpers import make_authenticated_request
 import config
 import requests
+from app.utils.logger import logger
 
 class ServiceAccountManager:
     def __init__(self):
@@ -27,12 +28,12 @@ class ServiceAccountManager:
                 self.access_token = tokens["accessToken"]["token"]
                 self.refresh_token = tokens["refreshToken"]["token"]
                 self.token_expiry = time.time() + 10 * 60  # 10 minutes from now
-                print("Service account successfully logged in.")
+                logger.debug("Service account successfully logged in.")
             else:
-                print(f"Login to Service Acount Failed")
+                logger.error("Login to Service Account Failed")
                 raise
         except Exception as e:
-            print(f"Login failed: {e}")
+            logger.error(f"Login to Service Account Failed. Error: {e}")
             raise
 
     def refresh_access_token(self):
@@ -51,12 +52,12 @@ class ServiceAccountManager:
                 self.access_token = tokens["accessToken"]["token"]
                 self.refresh_token = tokens["refreshToken"]["token"]
                 self.token_expiry = time.time() + 10 * 60  # Reset expiration
-                print("Access token successfully refreshed.")
+                logger.debug("Access token successfully refreshed.")
             else:
-                print(f"Login to Service Acount Failed")
+                logger.error("Login to Service Account Failed")
                 raise
         except Exception as e:
-            print(f"Token refresh failed: {e}")
+            logger.error(f"Token Refresh Failed: {e}")
             # Fall back to a fresh login if refresh fails
             self.login()
 
@@ -64,10 +65,10 @@ class ServiceAccountManager:
         """Ensure a valid access token is available."""
         if not self.access_token or time.time() >= self.token_expiry - 30:  # Renew 30 seconds before expiry
             if not self.refresh_token or time.time() >= self.token_expiry:  # If refresh token also expired
-                print("Both tokens expired. Logging in again.")
+                logger.debug("Both tokens expired. Logging in again.")
                 self.login()
             else:
-                print("Access token expired. Refreshing token.")
+                logger.debug("Access token expired. Refreshing token.")
                 self.refresh_access_token()
         return self.access_token
 
