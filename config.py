@@ -47,7 +47,7 @@ class Config:
     DB_HOST = "affintytrades-mysql-affinitytradessupport-605e.k.aivencloud.com"
     DB_PORT = 14567
     DB_USER = "avnadmin"  # e.g., "root"
-    #DB_PASSWORD = "AVNS_wGnjM874MxNmp37dQkr" # e.g., "password"
+    DB_PASSWORD = ""
     DATABASE = "defaultdb"  # e.g., "test_db"
 
 
