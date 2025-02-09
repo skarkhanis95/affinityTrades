@@ -44,7 +44,7 @@ class Config:
     GET_WITHDRAWAL_METHODS_API = f"{API_BASE_URL}/withdrawal-methods"
 
     #Database Details
-    DB_HOST = "localhost"  # e.g., "localhost"
+    DB_HOST = "affinitytrades2024.mysql.pythonanywhere-services.com"  # e.g., "localhost"
     DB_USER = "affinityTrades20"  # e.g., "root"
     DB_PASSWORD = "Whisky@3115" # e.g., "password"
     DATABASE = "affinitytrades20$affinityTrades"  # e.g., "test_db"
