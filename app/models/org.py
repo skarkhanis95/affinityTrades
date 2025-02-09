@@ -22,6 +22,7 @@ db_config = {
     "password": config.Config.DB_PASSWORD,
     "database": config.Config.DATABASE,
 }
+print("")
 
 class Organization:
     @staticmethod
