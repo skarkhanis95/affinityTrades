@@ -44,11 +44,16 @@ class Config:
     GET_WITHDRAWAL_METHODS_API = f"{API_BASE_URL}/withdrawal-methods"
 
     #Database Details
-    DB_HOST = "affintytrades-mysql-affinitytradessupport-605e.k.aivencloud.com"
-    DB_PORT = 14567
-    DB_USER = "avnadmin"  # e.g., "root"
+    # DB_HOST = "affintytrades-mysql-affinitytradessupport-605e.k.aivencloud.com"
+    # DB_PORT = 14567
+    # DB_USER = "avnadmin"  # e.g., "root"
+    # DB_PASSWORD = ""
+    # DATABASE = "defaultdb"  # e.g., "test_db"
+    DB_HOST = "affinitytrades2024.mysql.pythonanywhere-services.comm"
+    DB_PORT = 3306
+    DB_USER = "affinitytrades20"  # e.g., "root"
     DB_PASSWORD = ""
-    DATABASE = "defaultdb"  # e.g., "test_db"
+    DATABASE = "affinitytrades20$affinityTrades"  # e.g., "test_db"
 
 
     #PAMM CONFIG
@@ -79,3 +84,6 @@ class Config:
     LEVEL_1_NAME = "Double Star"
     LEVEL_2_NAME = "Level 2"
     LEVEL_3_NAME = "Level 3"
+
+    # Runtime
+    configRunTime = "Prod" # Set to 'Local' for local dev settings

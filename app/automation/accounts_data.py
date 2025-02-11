@@ -1,6 +1,9 @@
 import requests
 import json
+
+import config
 from app.services.service_account_manager import ServiceAccountManager
+from app.utils.logger import logger
 
 
 sm = ServiceAccountManager()
@@ -30,14 +33,29 @@ def fetch_and_store_data(api_url, limit=100, offset=0, type=""):
             print(f"Failed to fetch data. Status code: {response.status_code}")
             break
     if type == "accounts":
-        filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/accounts_data.json'
+        runtime = config.Config.configRunTime
+        if runtime == "Prod":
+            filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/accounts_data.json'
+        elif runtime == "Local":
+            filename = '../daily_files/accounts_data.json'
+        else:
+            logger.error("Invalid Runtime Detected!")
+            return {}
     elif type == "clients":
-        filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/clients_data.json'
+        runtime = config.Config.configRunTime
+        if runtime == "Prod":
+            filename = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/clients_data.json'
+        elif runtime == "Local":
+            filename = '../daily_files/clients_data.json'
+        else:
+            logger.error("Invalid Runtime Detected!")
+            return {}
+
     with open(filename, 'w') as json_file:
         # Write the clients data as a JSON array to the file
         json.dump(return_data, json_file, indent=4)
     #print(json.dumps(return_data))
-    #print("file created")
+    print(f"file created: {filename}")
 
 
 

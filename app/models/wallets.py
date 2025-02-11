@@ -6,6 +6,7 @@ import config
 import requests
 from flask import session as flask_session
 from datetime import datetime
+from app.utils.logger import logger
 
 
 
@@ -74,14 +75,17 @@ class Wallets:
             transactions_data = transaction_response.json()
             try:
                 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+                runtime = config.Config.configRunTime
+                if runtime == "Prod":
+                    file_path = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/accounts_data.json'
+                    file_path2 = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/clients_data.json'
+                elif runtime == "Local":
+                    file_path = os.path.join(BASE_DIR, '../daily_files/accounts_data.json')
+                    file_path2 = os.path.join(BASE_DIR, '../daily_files/clients_data.json')
+                else:
+                    logger.error("Invalid Runtime Detected!")
+                    return {}
 
-                # Temporary create Database and store information here:
-                # Local Server Settings
-                # file_path = os.path.join(BASE_DIR, '../daily_files/accounts_data.json')
-                # file_path2 = os.path.join(BASE_DIR, '../daily_files/clients_data.json')
-                # Remote Server Settings
-                file_path = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/accounts_data.json'
-                file_path2 = '/home/affinitytrades2024/mysite/affinityTrades/app/daily_files/clients_data.json'
                 # Ensure the directory exists
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
