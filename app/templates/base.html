@@ -63,7 +63,9 @@
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
     <style>
       /* Default Grid View */
       #cardContainer.row {
@@ -400,6 +402,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
@@ -471,60 +475,173 @@
       crossorigin="anonymous"
     ></script>
     <!-- jsvectormap -->
+    <script src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <!--    DataTables Scripts-->
    <script>
-  $(document).ready(function() {
-    $('#transactionsTable').DataTable({
-      "paging": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "lengthChange": true,
-      "pageLength": 10,
-      "autoWidth": false,
-      "order": [[1, 'desc']], // Default sorting by the Date & Time column (column index 1)
+    $(document).ready(function () {
+        var minDateFilter = null;
+        var maxDateFilter = null;
 
-      // Callback to format date, time, and amount when DataTable is drawn
-      "createdRow": function(row, data, dataIndex) {
-        var dateCell = $(row).find('td').eq(1); // Date is in the second column (index 1)
-        var amountCell = $(row).find('td').eq(3); // Amount is in the fourth column (index 3)
+        var table = $('#transactionsTable').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "lengthChange": true,
+            "pageLength": 10,
+            "autoWidth": false,
+            "order": [[1, 'desc']], // Sorting by Date & Time column (index 1)
+            "dom": 'Bfrtip',  // Enable Buttons
+            "buttons": [
+                {
+                    extend: 'csvHtml5',
+                    text: 'Export CSV',
+                    className: 'btn btn-primary',
+                    title: 'Transactions',
+                    exportOptions: {
+                        columns: ':visible',  // Export only visible columns
+                        modifier: {
+                            search: 'applied', // Export only filtered data
+                            order: 'applied'   // Keep current sorting
+                        }
+                    }
+                }
+            ],
 
-        var dateStr = dateCell.text(); // Get the date string from the cell
-        var amountStr = amountCell.text(); // Get the amount string from the cell
+            initComplete: function () {
+                var api = this.api();
 
-        // Convert the ISO date string to a Date object and format it
-        var dateObj = new Date(dateStr);
-        var formattedDate = dateObj.toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric'
-        }).replace(',', ''); // Remove comma between day and month
+                // Loop through all columns
+                this.api().columns().every(function (index) {
+                    var column = this;
+                    var header = $(column.header());
+                    var title = header.text().trim();
 
-        // Format the time to 24-hour HH:mm
-        var formattedTime = dateObj.toLocaleTimeString('en-GB', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false // Ensure 24-hour format
+                    // If it's the Date & Time column (index 1), use a date range picker
+                    if (index === 1) {
+                        var dateInput = $('<input type="text" id="dateFilter" placeholder="Select Date Range" style="width: 160px"/>')
+                            .appendTo(header)
+                            .daterangepicker({
+                                autoUpdateInput: false,
+                                locale: {
+                                    cancelLabel: 'Clear',
+                                    format: 'YYYY-MM-DD'
+                                }
+                            });
+
+                        // When a date is selected
+                        dateInput.on('apply.daterangepicker', function (ev, picker) {
+                            minDateFilter = picker.startDate.startOf('day').valueOf(); // Convert to timestamp
+                            maxDateFilter = picker.endDate.endOf('day').valueOf();
+                            $(this).val(picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD'));
+                            table.draw();
+                        });
+
+                        // Clear filter
+                        dateInput.on('cancel.daterangepicker', function () {
+                            $(this).val('');
+                            minDateFilter = null;
+                            maxDateFilter = null;
+                            table.draw();
+                        });
+                    } else {
+                        // Add a normal search box for other columns
+                        $('<input type="text" placeholder="Search ' + title + '" />')
+                            .appendTo(header)
+                            .on('keyup change', function () {
+                                if (column.search() !== this.value) {
+                                    column.search(this.value).draw();
+                                }
+                            });
+                    }
+                });
+            },
+
+            "createdRow": function (row, data, dataIndex) {
+                var dateCell = $(row).find('td').eq(1);
+                var amountCell = $(row).find('td').eq(3);
+
+                var dateStr = dateCell.text();
+                var amountStr = amountCell.text();
+
+                var dateObj = new Date(dateStr);
+                var formattedDate = dateObj.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                }).replace(',', '');
+                var formattedTime = dateObj.toLocaleTimeString('en-GB', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                var formattedDateTime = formattedDate + ' ' + formattedTime;
+
+                var formattedAmount = parseFloat(amountStr.replace(/[^\d.-]/g, '')) || 0;
+                formattedAmount = formattedAmount.toFixed(2);
+
+                dateCell.text(formattedDateTime);
+                amountCell.text('$' + formattedAmount);
+            },
+
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api();
+                var pageTotal = api
+                    .column(3, { page: 'current' })
+                    .data()
+                    .reduce(function (acc, val) {
+                        var amount = parseFloat(val.replace(/[^\d.-]/g, '')) || 0;
+                        return acc + amount;
+                    }, 0);
+
+                var overallTotal = api
+                    .column(3)
+                    .data()
+                    .reduce(function (acc, val) {
+                        var amount = parseFloat(val.replace(/[^\d.-]/g, '')) || 0;
+                        return acc + amount;
+                    }, 0);
+
+                var formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                });
+
+                $(api.column(3).footer()).html(
+                    '<strong>Subtotal: ' + formatter.format(pageTotal) + '<br>' +
+                    'Total: ' + formatter.format(overallTotal) + '</strong>'
+                );
+            }
         });
 
-        // Combine the date and time
-        var formattedDateTime = formattedDate + ' ' + formattedTime;
-
-        // Check if the amount is a valid number before formatting
-        var formattedAmount = parseFloat(amountStr);
-        if (!isNaN(formattedAmount)) {
-          formattedAmount = formattedAmount.toFixed(2); // Format to 2 decimal places
-        } else {
-          formattedAmount = '0.00'; // Default to 0.00 if the amount is not valid
+        // Ensure footer exists before modifying
+        if ($('#transactionsTable tfoot').length === 0) {
+            $('#transactionsTable').append('<tfoot><tr><th></th><th></th><th></th><th></th><th></th></tr></tfoot>');
         }
 
-        // Update the table cells with the formatted date/time and amount
-        dateCell.text(formattedDateTime);
-        amountCell.text('$' + formattedAmount);
-      }
+        // Append Export button outside DataTables UI
+        table.buttons().container().appendTo($('#exportContainer'));
+
+        // Custom Date Filtering Function
+        $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+            var dateStr = data[1]; // Get date from column index 1
+            var dateObj = new Date(dateStr);
+            var dateTimestamp = dateObj.getTime();
+
+            if ((minDateFilter === null && maxDateFilter === null) ||
+                (minDateFilter === null && dateTimestamp <= maxDateFilter) ||
+                (maxDateFilter === null && dateTimestamp >= minDateFilter) ||
+                (dateTimestamp >= minDateFilter && dateTimestamp <= maxDateFilter)) {
+                return true;
+            }
+            return false;
+        });
+
     });
-  });
 </script>
+
+
     {% block customscript %}
 
     {% endblock %}

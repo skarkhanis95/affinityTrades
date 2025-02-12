@@ -9,6 +9,9 @@ import requests.sessions
 import json
 import os
 import config
+import pandas as pd
+from io import StringIO
+from flask import Response
 
 transactions_bp = Blueprint('transactions', __name__, url_prefix='/transactions')
 
@@ -32,3 +35,28 @@ def transactions():
 
     return render_template('transactions/transactions-history.html', wallets_data=wallets_data, profile_data=profile_data,
                            transactions_data=transactions_data)
+
+@transactions_bp.route('/export-transactions')
+@token_required
+def export_transactions():
+    """Fetch profile info and render the dashboard page."""
+
+    transactions_data = Wallets.fetch_transactions()
+    if not transactions_data:
+        return {}
+
+    transactions_data_export = transactions_data["data"]
+
+    # Convert the transaction data into a Pandas DataFrame
+    df = pd.DataFrame(transactions_data_export)
+
+    # Create an in-memory buffer
+    output = StringIO()
+    df.to_csv(output, index=False)  # Convert DataFrame to CSV (no index column)
+    output.seek(0)  # Move to the start of the buffer
+
+    return Response(
+        output.getvalue(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=transactions.csv"}
+    )

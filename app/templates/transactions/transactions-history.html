@@ -9,8 +9,14 @@
 {% block headerdropdown_profile_name %}{{ profile_data['email'] }}{% endblock %}
 {% block page_header %}Transactions History{% endblock %}
 {% block body %}
+<!--<div class="row mb-3">-->
+<!--  <div class="col-lg-2 col-md-2 col-sm-12">-->
+<!--    <button id="exportCSV" class="btn btn-success">Export All Data</button>-->
 
+<!--  </div>-->
+<!--</div>-->
 <div class="row">
+  <div id="exportContainer"></div>
 <table id="transactionsTable" class="display">
   <thead>
     <tr>
@@ -85,6 +91,20 @@
       </tr>
     {% endfor %}
   </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </tfoot>
 </table>
 
 
@@ -130,4 +150,20 @@
       });
 
     </script>
+<script>
+    document.getElementById("exportCSV").addEventListener("click", function () {
+        fetch("/transactions/export-transactions")
+            .then(response => response.blob())  // Get the response as a Blob
+            .then(blob => {
+                let url = window.URL.createObjectURL(blob); // Create a downloadable URL
+                let a = document.createElement("a"); // Create an anchor tag
+                a.href = url;
+                a.download = "transactions.csv"; // Set the file name
+                document.body.appendChild(a);
+                a.click(); // Simulate click
+                document.body.removeChild(a);
+            })
+            .catch(error => console.error("Error exporting CSV:", error));
+    });
+</script>
 {% endblock %}

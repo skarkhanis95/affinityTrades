@@ -16,7 +16,7 @@
         <i class="bi bi-currency-dollar"></i>
       </span>
       <div class="info-box-content">
-        <span class="info-box-text">Estimated Total Balance</span>
+        <span class="info-box-text">Estimated Total Balance <a href="/wallets" target="_blank"><i class="bi bi-link-45deg"></i></a></span>
         <h3>${{ wallets_data.totalEstBalance }}</h3>
         <h5>₹ {{ wallets_data.inrEstBalance }} </h5>
       </div>
@@ -29,7 +29,7 @@
         <i class="bi bi-cash-coin"></i>
       </span>
       <div class="info-box-content">
-        <span class="info-box-text">Gross Profit</span>
+        <span class="info-box-text">Gross Profit <a href="/transactions" target="_blank"><i class="bi bi-link-45deg"></i></a></span>
         <h3>${{ transactions_data.totalProfit }}</h3>
         <h5>₹ {{ transactions_data.totalProfitINR }} </h5>
       </div>
@@ -42,7 +42,7 @@
         <i class="bi bi-cash-stack"></i>
       </span>
       <div class="info-box-content">
-        <span class="info-box-text">Net Profit</span>
+        <span class="info-box-text">Net Profit <a href="/transactions" target="_blank"><i class="bi bi-link-45deg"></i></a></span>
         <h3>${{ transactions_data.individualProfit }}</h3>
         <h5>₹ {{ transactions_data.individualProfitINR }} </h5>
       </div>
@@ -55,7 +55,7 @@
         <i class="bi bi-bar-chart-fill"></i>
       </span>
       <div class="info-box-content">
-        <span class="info-box-text">Partnership Earnings</span>
+       <span class="info-box-text">Partnership Earnings <a href="/team" target="_blank"><i class="bi bi-link-45deg"></i></a></span>
         <h3>${{ transactions_data.partnershipFees }}</h3>
         <h5>₹ {{ transactions_data.partnershipFeesINR }} </h5>
       </div>

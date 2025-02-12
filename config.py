@@ -49,7 +49,7 @@ class Config:
     # DB_USER = "avnadmin"  # e.g., "root"
     # DB_PASSWORD = ""
     # DATABASE = "defaultdb"  # e.g., "test_db"
-    DB_HOST = "affinitytrades2024.mysql.pythonanywhere-services.comm"
+    DB_HOST = "affinitytrades2024.mysql.pythonanywhere-services.com"
     DB_PORT = 3306
     DB_USER = "affinitytrades20"  # e.g., "root"
     DB_PASSWORD = ""
