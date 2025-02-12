@@ -97,7 +97,7 @@ class Wallets:
                 clients_dict = {client['clientId']: client['name'] for client in clients_data}
                 # Create a dictionary for fast lookup of account details based on accountId
                 accounts_dict = {account['accountId']: account['clientId'] for account in accounts_data}
-
+                transactions_data["data"] = [t for t in transactions_data["data"] if t.get("type") != "partner"]
                 for transaction in transactions_data["data"]:
                     # Handle creditDetails account
                     if transaction.get("creditDetails") is None and transaction["type"] == "withdrawal":
@@ -123,7 +123,7 @@ class Wallets:
                         transaction["debitDetails"] = {"account": {"clientName": "Bank Deposit (Self)"}}
 
                     else:
-                        debit_account_id = transaction.get("debitDetails", {}).get("account", {}).get("accountId")
+                        debit_account_id = transaction.get("debitDetails", {}).get("account", {}).get("accountId", "")
                         if debit_account_id and debit_account_id in accounts_dict:
                             client_id = accounts_dict[debit_account_id]
                             transaction["debitDetails"]["account"]["clientName"] = clients_dict.get(client_id,
